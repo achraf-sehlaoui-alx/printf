@@ -1,18 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
-#include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include <limits.h>
 
+int _putchar(char character);
+
+int printf_char(va_list args, int pr);
+int printf_string(va_list args, int pr);
+int printf_integer(va_list args, int pr);
+
+int switch_function(const char *format, va_list args, int pr);
 int _printf(const char *format, ...);
-int _putchar(char c);
 
-int selector(const char *format, va_list args, int printed);
-
-int printf_char(va_list args, int printed);
-int printf_string(va_list args, int printed);
-int printf_integer(va_list args, int printed);
 
 #endif
