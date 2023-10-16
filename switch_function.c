@@ -28,6 +28,9 @@ int switch_function(const char *format, va_list args, int pr)
 			pr++;
 			break;
 		default:
+			_putchar('%');
+			pr++;
+			format--;
 			break;
 	}
 	return (pr);

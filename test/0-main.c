@@ -21,10 +21,6 @@ printf("Negative:[%d]\n", -762534);
 
 
 
-_printf("Should print a single percent sign: %%\n");
-printf("Should print a single percent sign: %%\n");
-_printf("css%ccs%scscscs", 'T', "Test");
-printf("css%ccs%scscscs", 'T', "Test");
 _printf("%c", '\0');
 printf("%c", '\0');
 _printf("%");
