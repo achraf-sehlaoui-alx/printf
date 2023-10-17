@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * printByFormat - Prints an argument based on its type
  * @fmt: Formatted string in which to print the arguments.
@@ -10,39 +11,40 @@
  * @precision: Precision specification
  * @size: Size specifier
  * Return: 1 or 2;
- */
-int printByFormat(const char *fmt, int *ind, va_list list, char buffer[],
+*/
+
+int printByFormat(const char *Format_Spec, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
-	fmt_t fmt_types[] = {
+	Format_Spec_t Format_Spec_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
 		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
-	for (i = 0; fmt_types[i].fmt != '\0'; i++)
-		if (fmt[*ind] == fmt_types[i].fmt)
-			return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
+	for (i = 0; Format_Spec_types[i].Format_Spec != '\0'; i++)
+		if (Format_Spec[*ind] == Format_Spec_types[i].Format_Spec)
+			return (Format_Spec_types[i].prc_Fnc(list, buffer, flags, width, precision, size));
 
-	if (fmt_types[i].fmt == '\0')
+	if (Format_Spec_types[i].Format_Spec == '\0')
 	{
-		if (fmt[*ind] == '\0')
+		if (Format_Spec[*ind] == '\0')
 			return (-1);
 		unknow_len += write(1, "%%", 1);
-		if (fmt[*ind - 1] == ' ')
+		if (Format_Spec[*ind - 1] == ' ')
 			unknow_len += write(1, " ", 1);
 		else if (width)
 		{
 			--(*ind);
-			while (fmt[*ind] != ' ' && fmt[*ind] != '%')
+			while (Format_Spec[*ind] != ' ' && Format_Spec[*ind] != '%')
 				--(*ind);
-			if (fmt[*ind] == ' ')
+			if (Format_Spec[*ind] == ' ')
 				--(*ind);
 			return (1);
 		}
-		unknow_len += write(1, &fmt[*ind], 1);
+		unknow_len += write(1, &Format_Spec[*ind], 1);
 		return (unknow_len);
 	}
 	return (printed_chars);
