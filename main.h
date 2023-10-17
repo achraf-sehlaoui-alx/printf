@@ -20,7 +20,7 @@
 
 /**
  * struct Format_Spec - Struct format hundler
- * @specifier: The format Specifier
+ * @Format_Spec: The format Specifier
  * @prc_Fnc: The processed function associated
  */
 
