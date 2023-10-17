@@ -2,19 +2,20 @@
 
 /**
  * printByFormat - Prints an argument based on its type
- * @fmt: Formatted string in which to print the arguments.
- * @list: List of arguments to be printed.
- * @ind: ind.
- * @buffer: Buffer array to handle print.
+ * @Format_Spec: Formatted string
+ * @list: List of arguments to be printed
+ * @ind: indicator
+ * @buffer: Buffer array to handle print
  * @flags: Calculates active flags
- * @width: get width.
+ * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
  * Return: 1 or 2;
 */
 
-int printByFormat(const char *Format_Spec, int *ind, va_list list, char buffer[],
-	int flags, int width, int precision, int size)
+int printByFormat(const char *Format_Spec, int *ind, va_list list,
+		char buffer[], int flags, int width,
+		int precision, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
 	Format_Spec_t Format_Spec_types[] = {
@@ -26,7 +27,8 @@ int printByFormat(const char *Format_Spec, int *ind, va_list list, char buffer[]
 	};
 	for (i = 0; Format_Spec_types[i].Format_Spec != '\0'; i++)
 		if (Format_Spec[*ind] == Format_Spec_types[i].Format_Spec)
-			return (Format_Spec_types[i].prc_Fnc(list, buffer, flags, width, precision, size));
+			return (Format_Spec_types[i].prc_Fnc(list, buffer, flags,
+						width, precision, size));
 
 	if (Format_Spec_types[i].Format_Spec == '\0')
 	{
