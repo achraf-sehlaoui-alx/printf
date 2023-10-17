@@ -26,7 +26,7 @@ int print_char(va_list types, char buffer[],
 
 /************************* PRINT A STRING *************************/
 /**
- * print_stg - Prints a string
+ * print_str - Prints a string
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -36,7 +36,7 @@ int print_char(va_list types, char buffer[],
  * Return: Number of chars printed
  */
 
-int print_stg(va_list types, char buffer[],
+int print_str(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int length = 0, i;
