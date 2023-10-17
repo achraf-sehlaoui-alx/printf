@@ -1,4 +1,5 @@
-/************************* PRINT INT *************************/
+#include "main.h"
+
 /**
  * print_int - Print int Number
  * @types: List of arguments

@@ -19,7 +19,7 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (write_format_char(c, buffer, flags, width, precision, size));
 }
 
 

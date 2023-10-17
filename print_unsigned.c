@@ -14,12 +14,12 @@
  */
 
 int print_unsigned(va_list types, char buffer[],
-	nt flags, int width, int precision, int size)
+	int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int Number = va_arg(types, unsigned long int);
 
-	Number = convert_size_unsgnd(Number, size);
+	Number = convert_size_unsigned(Number, size);
 
 	if (Number == 0)
 		buffer[i--] = '0';
@@ -32,7 +32,7 @@ int print_unsigned(va_list types, char buffer[],
 		Number /= 10;
 	}
 	i++;
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsigned(0, i, buffer, flags, width, precision, size));
 }
 
 
@@ -58,7 +58,7 @@ int print_oct(va_list types, char buffer[],
 
 	UNUSED(width);
 
-	Number = convert_size_unsgnd(Number, size);
+	Number = convert_size_unsigned(Number, size);
 
 	if (Number == 0)
 		buffer[i--] = '0';
@@ -74,7 +74,7 @@ int print_oct(va_list types, char buffer[],
 	if (flags & F_HASH && init_Number != 0)
 		buffer[i--] = '0';
 	i++;
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsigned(0, i, buffer, flags, width, precision, size));
 }
 
 
@@ -143,7 +143,7 @@ int print_hex(va_list types, char map_to[], char buffer[],
 
 	UNUSED(width);
 
-	Number = convert_size_unsgnd(Number, size);
+	Number = convert_size_unsigned(Number, size);
 
 	if (Number == 0)
 		buffer[i--] = '0';
@@ -159,5 +159,5 @@ int print_hex(va_list types, char map_to[], char buffer[],
 		buffer[i--] = '0';
 	}
 	i++;
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsigned(0, i, buffer, flags, width, precision, size));
 }

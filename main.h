@@ -26,7 +26,7 @@
 
 struct Format_Spec
 {
-	char specifier;
+	char Format_Spec;
 	int (*prc_Fnc)(va_list, char[], int, int, int, int);
 };
 
@@ -36,7 +36,7 @@ struct Format_Spec
  * @Format_Spec_t: The processed function associated
  */
 
-typedef struct FormatSpec FormatSpec_t;
+typedef struct Format_Spec Format_Spec_t;
 
 /****************** *****************/
 
@@ -72,7 +72,7 @@ int print_hex_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 int print_hex(va_list types, char map_to[], char buffer[],
-		int flags, char flag_ch, int width,
+		char flag_ch, int flags, int width,
 		int precision, int size);
 
 /* Print non printable characters */
@@ -111,7 +111,7 @@ int write_num(int ind, char bff[], int flags, int width, int precision,
 	int length, char padd, char extra_c);
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start);
-int write_unsigned(int is_negative, int ind,char buffer[],
+int write_unsigned(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size);
 
 /****************** UTILS ******************/
@@ -121,6 +121,6 @@ int append_hex(char, char[], int);
 int is_digit(char);
 
 long int convert_size_number(long int num, int size);
-long int convert_size_unsigned(unsigned long int num, int size)
+long int convert_size_unsigned(unsigned long int num, int size);
 
 #endif /* MAIN_H */

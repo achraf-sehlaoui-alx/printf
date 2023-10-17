@@ -13,8 +13,8 @@
  */
 
 int printByFormat(const char *Format_Spec, int *ind, va_list list,
-			char buffer[],
-	int flags, int width, int precision, int size)
+			char buffer[], int flags, int width,
+			int precision, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
 	Format_Spec_t Format_Spec_types[] = {
@@ -27,7 +27,7 @@ int printByFormat(const char *Format_Spec, int *ind, va_list list,
 	};
 	for (i = 0; Format_Spec_types[i].Format_Spec != '\0'; i++)
 		if (Format_Spec[*ind] == Format_Spec_types[i].Format_Spec)
-			return (Format_Spec_types[i].fn(list, buffer, flags, width,
+			return (Format_Spec_types[i].prc_Fnc(list, buffer, flags, width,
 				precision, size));
 
 	if (Format_Spec_types[i].Format_Spec == '\0')
